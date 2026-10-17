@@ -1,0 +1,48 @@
+
+> weblytic360-frontend@1.0.0 build
+> next build
+
+Γû▓ Next.js 16.3.7 (Turbopack)
+- Environments: .env.local
+Γ£ô Running next.config.js took 41ms
+
+  Running TypeScript ...
+  Finished TypeScript in 4ms ...
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 2.0s
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/24) ...
+  Generating static pages using 11 workers (6/24) 
+  Generating static pages using 11 workers (12/24) 
+  Generating static pages using 11 workers (18/24) 
+Γ£ô Generating static pages using 11 workers (24/24) in 402ms
+  Finalizing page optimization ...
+
+Route (pages)
+Γöî Γùï /
+Γö£   /_app
+Γö£ Γùï /404
+Γö£ Γùï /account
+Γö£ Γùï /api-keys
+Γö£ Γùï /forgot-password
+Γö£ Γùï /import
+Γö£ Γùï /login
+Γö£ Γùï /network
+Γö£ Γùï /preferences
+Γö£ Γùï /pricing
+Γö£ Γùï /reset-password
+Γö£ Γùï /signup
+Γö£ Γùï /site/[siteId]
+Γö£ Γùï /site/[siteId]/acquisition
+Γö£ Γùï /site/[siteId]/ai-traffic
+Γö£ Γùï /site/[siteId]/audience
+Γö£ Γùï /site/[siteId]/content
+Γö£ Γùï /site/[siteId]/events
+Γö£ Γùï /site/[siteId]/realtime
+Γö£ Γùï /site/[siteId]/reports
+Γö£ Γùï /site/[siteId]/settings
+Γö£ Γùï /sites
+Γöö Γùï /team
+
+Γùï  (Static)  prerendered as static content
+

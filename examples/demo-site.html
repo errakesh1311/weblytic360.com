@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Store — Weblytic360 tracker example</title>
+
+  <!--
+    ════════════════════════════════════════════════════════════════════
+    ADD YOUR REAL WEBSITE'S site_id HERE 👇
+    ════════════════════════════════════════════════════════════════════
+    - data-site-id   : your site ID (available on the /sites page)
+    - data-api       : backend URL (localhost:5000 for local development)
+    - data-track-localhost="true" : the tracker normally ignores localhost;
+               this is set to true here for testing.
+
+    👉 ENTER YOUR ACTUAL site_id IN data-site-id BELOW (demo site):
+       6912b921-2255-4abc-91a3-38b62dc750a9
+    ════════════════════════════════════════════════════════════════════
+  -->
+  <script defer
+    src="http://localhost:3000/tracker.js"
+    data-site-id="6912b921-2255-4abc-91a3-38b62dc750a9"
+    data-api="http://localhost:5000"
+    data-track-localhost="true"></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      margin: 0; background: #f1f5f9; color: #0f172a;
+    }
+    header {
+      background: #0f3f4a; color: #fff; padding: 18px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    header strong { font-size: 1.15rem; }
+    nav a {
+      color: #cbd5e1; text-decoration: none; margin-left: 18px; font-size: .9rem;
+    }
+    nav a:hover { color: #fff; }
+    main { max-width: 760px; margin: 40px auto; padding: 0 20px; }
+    .card {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 28px; box-shadow: 0 1px 3px rgba(15,23,42,.08); margin-bottom: 20px;
+    }
+    h1 { margin-top: 0; }
+    .btn {
+      display: inline-block; cursor: pointer; border: none;
+      background: #0d9488; color: #fff; font-weight: 600;
+      padding: 11px 20px; border-radius: 9px; font-size: .95rem;
+    }
+    .btn:hover { background: #0f766e; }
+    .log {
+      background: #0f172a; color: #5eead4; border-radius: 10px;
+      padding: 14px 16px; font-family: ui-monospace, monospace;
+      font-size: .8rem; margin-top: 16px; min-height: 60px; white-space: pre-wrap;
+    }
+    .muted { color: #64748b; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>🛍️ Demo Store</strong>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h1>Welcome to the Demo Store</h1>
+      <p class="muted">
+        This is a sample website. When this page opened, the tracker sent a
+        <strong>pageview</strong> event to your Weblytic360 backend with the
+        <code>site_id</code> specified above in <code>data-site-id</code>.
+      </p>
+
+      <button class="btn" id="buyBtn">🛒 Buy Now (send a custom event)</button>
+
+      <div class="log" id="log">Loading tracker…</div>
+    </div>
+
+    <div class="card">
+      <h2>How does this work?</h2>
+      <ol class="muted">
+        <li>The <code>&lt;script data-site-id="..."&gt;</code> above loads tracker.js.</li>
+        <li>When the page opens, a <strong>pageview</strong> event is sent to
+            <code>POST /api/events/collect</code>.</li>
+        <li>Clicking "Buy Now" sends a <strong>custom event</strong> (<code>purchase</code>).</li>
+        <li>All this data appears in your dashboard:
+            <br /><code>http://localhost:3000/site/6912b921-.../realtime</code></li>
+      </ol>
+    </div>
+  </main>
+
+  <script>
+    // Log network requests on the page.
+    const logEl = document.getElementById('log');
+    const log = (msg) => {
+      logEl.textContent += '\n' + msg;
+    };
+
+    // Wrap fetch to inspect what the tracker sends.
+    const origFetch = window.fetch;
+    window.fetch = function (url, opts) {
+      if (String(url).includes('/api/events/collect')) {
+        try {
+          const body = JSON.parse(opts.body);
+          log('📤 Event sent: ' + (body.type || 'pageview') +
+              (body.name ? ' (' + body.name + ')' : '') +
+              '  →  site_id=' + (body.siteId || '').slice(0, 8) + '…');
+        } catch { /* ignore */ }
+      }
+      return origFetch.apply(this, arguments);
+    };
+
+    window.addEventListener('load', () => {
+      log('✅ Tracker loaded. Pageview sent.');
+    });
+
+    // "Buy Now" sends a custom event through the tracker's public API.
+    document.getElementById('buyBtn').addEventListener('click', () => {
+      if (typeof window.weblytic360 === 'function') {
+        window.weblytic360('purchase', { plan: 'pro', price: 19 });
+        log('🛒 Custom event "purchase" sent!');
+      } else {
+        log('⚠️ Tracker has not loaded yet. Wait a moment, then try again.');
+      }
+    });
+  </script>
+</body>
+</html>
