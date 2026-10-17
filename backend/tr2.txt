@@ -1,0 +1,392 @@
+TAP version 13
+# Subtest: classifyReferrer recognises AI assistant hosts
+ok 1 - classifyReferrer recognises AI assistant hosts
+  ---
+  duration_ms: 1.6059
+  ...
+# Subtest: classifyReferrer ignores ordinary search and unknown hosts
+ok 2 - classifyReferrer ignores ordinary search and unknown hosts
+  ---
+  duration_ms: 0.6169
+  ...
+# Subtest: classifyReferrer only counts Bing when the chat surface is indicated
+ok 3 - classifyReferrer only counts Bing when the chat surface is indicated
+  ---
+  duration_ms: 0.1542
+  ...
+# Subtest: a lookalike domain is not mistaken for the real assistant
+ok 4 - a lookalike domain is not mistaken for the real assistant
+  ---
+  duration_ms: 0.1013
+  ...
+# Subtest: classifyCrawler recognises known AI bots
+ok 5 - classifyCrawler recognises known AI bots
+  ---
+  duration_ms: 0.494
+  ...
+# Subtest: classify prefers the crawler signal over any referrer
+ok 6 - classify prefers the crawler signal over any referrer
+  ---
+  duration_ms: 0.1039
+  ...
+# Subtest: classify returns null for ordinary human traffic
+ok 7 - classify returns null for ordinary human traffic
+  ---
+  duration_ms: 0.2626
+  ...
+# [db] ready at C:\\Users\\kumarika\\workspace\\my_project\\weblytic360\\backend\\data\\test.db
+# [email] (not sent - RESEND_API_KEY missing) to=t1791495381850@example.com subject="Welcome to Weblytic360"
+# Subtest: POST /api/auth/signup creates an account and returns a token
+ok 8 - POST /api/auth/signup creates an account and returns a token
+  ---
+  duration_ms: 199.0106
+  ...
+# Subtest: POST /api/auth/signup rejects a duplicate email
+ok 9 - POST /api/auth/signup rejects a duplicate email
+  ---
+  duration_ms: 14.0918
+  ...
+# Subtest: POST /api/auth/signup rejects a short password
+ok 10 - POST /api/auth/signup rejects a short password
+  ---
+  duration_ms: 8.182
+  ...
+# Subtest: POST /api/auth/signup rejects a malformed email
+ok 11 - POST /api/auth/signup rejects a malformed email
+  ---
+  duration_ms: 8.7755
+  ...
+# Subtest: POST /api/auth/signup rejects a password with no digits
+ok 12 - POST /api/auth/signup rejects a password with no digits
+  ---
+  duration_ms: 11.0937
+  ...
+# Subtest: POST /api/auth/signup rejects a common password
+ok 13 - POST /api/auth/signup rejects a common password
+  ---
+  duration_ms: 11.3413
+  ...
+# [email] (not sent - RESEND_API_KEY missing) to=mixed1791495382113@example.com subject="Welcome to Weblytic360"
+# Subtest: POST /api/auth/signup normalises the email and derives a name
+ok 14 - POST /api/auth/signup normalises the email and derives a name
+  ---
+  duration_ms: 99.0919
+  ...
+# [email] (not sent - RESEND_API_KEY missing) to=trial1791495382214@example.com subject="Welcome to Weblytic360"
+# Subtest: POST /api/auth/signup starts a trial on the free plan
+ok 15 - POST /api/auth/signup starts a trial on the free plan
+  ---
+  duration_ms: 95.6279
+  ...
+# Subtest: POST /api/auth/login succeeds with correct credentials
+ok 16 - POST /api/auth/login succeeds with correct credentials
+  ---
+  duration_ms: 88.6455
+  ...
+# Subtest: POST /api/auth/login rejects a wrong password
+ok 17 - POST /api/auth/login rejects a wrong password
+  ---
+  duration_ms: 85.4342
+  ...
+# Subtest: GET /api/auth/me requires a token
+ok 18 - GET /api/auth/me requires a token
+  ---
+  duration_ms: 5.1464
+  ...
+# Subtest: GET /api/auth/me returns the current user
+ok 19 - GET /api/auth/me returns the current user
+  ---
+  duration_ms: 83.1979
+  ...
+# Subtest: PATCH /api/auth/me updates the display name
+ok 20 - PATCH /api/auth/me updates the display name
+  ---
+  duration_ms: 85.3287
+  ...
+# Subtest: PATCH /api/auth/me rejects an empty name
+ok 21 - PATCH /api/auth/me rejects an empty name
+  ---
+  duration_ms: 78.6612
+  ...
+# [email] (not sent - RESEND_API_KEY missing) to=reset1791495382735@example.com subject="Welcome to Weblytic360"
+# [email] (not sent - RESEND_API_KEY missing) to=reset1791495382735@example.com subject="Reset your Weblytic360 password"
+# [auth] password reset for reset1791495382735@example.com: http://localhost:3000/reset-password?token=89be6f8073c0242bef266bfc5819cb35810bac276904d32f1dc34a7349da7d74
+# Subtest: password reset flow issues a token and sets a new password
+ok 22 - password reset flow issues a token and sets a new password
+  ---
+  duration_ms: 294.0198
+  ...
+# [email] (not sent - RESEND_API_KEY missing) to=reuse1791495383029@example.com subject="Welcome to Weblytic360"
+# [email] (not sent - RESEND_API_KEY missing) to=reuse1791495383029@example.com subject="Reset your Weblytic360 password"
+# [auth] password reset for reuse1791495383029@example.com: http://localhost:3000/reset-password?token=b027f40e620ad247f8e996d6a5aa590af9d11932e25c190e6cba12f722a4826a
+# Subtest: a reset token cannot be used twice
+ok 23 - a reset token cannot be used twice
+  ---
+  duration_ms: 172.8498
+  ...
+# Subtest: POST /api/auth/forgot-password hides whether the account exists
+ok 24 - POST /api/auth/forgot-password hides whether the account exists
+  ---
+  duration_ms: 5.0985
+  ...
+# [email] (not sent - RESEND_API_KEY missing) to=change1791495383207@example.com subject="Welcome to Weblytic360"
+# Subtest: POST /api/auth/change-password requires the correct current password
+ok 25 - POST /api/auth/change-password requires the correct current password
+  ---
+  duration_ms: 610.2794
+  ...
+# Subtest: login is rate limited once the limiter is enabled
+ok 26 - login is rate limited once the limiter is enabled
+  ---
+  duration_ms: 751.1019
+  ...
+# [db] ready at C:\\Users\\kumarika\\workspace\\my_project\\weblytic360\\backend\\data\\test.db
+# [email] (not sent - RESEND_API_KEY missing) to=features1791495386218@example.com subject="Welcome to Weblytic360"
+# Subtest: setup: signup and create a site
+ok 27 - setup: signup and create a site
+  ---
+  duration_ms: 153.721
+  ...
+# Subtest: signup response includes default preferences
+ok 28 - signup response includes default preferences
+  ---
+  duration_ms: 11.7709
+  ...
+# Subtest: PATCH /api/auth/preferences updates settings
+ok 29 - PATCH /api/auth/preferences updates settings
+  ---
+  duration_ms: 12.2704
+  ...
+# Subtest: PATCH /api/auth/preferences rejects a bad week start
+ok 30 - PATCH /api/auth/preferences rejects a bad week start
+  ---
+  duration_ms: 10.2043
+  ...
+# Subtest: POST /api/keys creates a key and returns the secret once
+ok 31 - POST /api/keys creates a key and returns the secret once
+  ---
+  duration_ms: 12.0555
+  ...
+# Subtest: GET /api/keys never returns the secret
+ok 32 - GET /api/keys never returns the secret
+  ---
+  duration_ms: 6.9707
+  ...
+# Subtest: POST /api/keys/:id/revoke disables the key
+ok 33 - POST /api/keys/:id/revoke disables the key
+  ---
+  duration_ms: 8.2626
+  ...
+# Subtest: POST /api/keys rejects a missing name
+ok 34 - POST /api/keys rejects a missing name
+  ---
+  duration_ms: 10.7671
+  ...
+# Subtest: POST /api/imports imports CSV rows as events
+ok 35 - POST /api/imports imports CSV rows as events
+  ---
+  duration_ms: 32.2485
+  ...
+# Subtest: POST /api/imports rejects CSV without a url column
+ok 36 - POST /api/imports rejects CSV without a url column
+  ---
+  duration_ms: 5.3512
+  ...
+# Subtest: POST /api/imports rejects a foreign site
+ok 37 - POST /api/imports rejects a foreign site
+  ---
+  duration_ms: 5.9055
+  ...
+# Subtest: GET /api/imports lists completed jobs
+ok 38 - GET /api/imports lists completed jobs
+  ---
+  duration_ms: 4.9096
+  ...
+# [db] ready at C:\\Users\\kumarika\\workspace\\my_project\\weblytic360\\backend\\data\\test.db
+# [email] (not sent - RESEND_API_KEY missing) to=n1791495388184@example.com subject="Welcome to Weblytic360"
+# Subtest: setup: signing up seeds a welcome notification
+ok 39 - setup: signing up seeds a welcome notification
+  ---
+  duration_ms: 200.8105
+  ...
+# Subtest: GET /api/notifications requires authentication
+ok 40 - GET /api/notifications requires authentication
+  ---
+  duration_ms: 19.027
+  ...
+# Subtest: GET /api/notifications returns the welcome notification as unread
+ok 41 - GET /api/notifications returns the welcome notification as unread
+  ---
+  duration_ms: 15.1633
+  ...
+# Subtest: creating a site adds a second notification
+ok 42 - creating a site adds a second notification
+  ---
+  duration_ms: 28.2741
+  ...
+# Subtest: POST /api/notifications/:id/read marks one as read
+ok 43 - POST /api/notifications/:id/read marks one as read
+  ---
+  duration_ms: 22.5905
+  ...
+# Subtest: POST /api/notifications/read-all clears the badge
+ok 44 - POST /api/notifications/read-all clears the badge
+  ---
+  duration_ms: 18.597
+  ...
+# [email] (not sent - RESEND_API_KEY missing) to=other1791495388498@example.com subject="Welcome to Weblytic360"
+# Subtest: a user cannot read another users notification
+ok 45 - a user cannot read another users notification
+  ---
+  duration_ms: 150.7506
+  ...
+# Subtest: DELETE /api/notifications/:id removes it
+ok 46 - DELETE /api/notifications/:id removes it
+  ---
+  duration_ms: 21.4759
+  ...
+# [db] ready at C:\\Users\\kumarika\\workspace\\my_project\\weblytic360\\backend\\data\\test.db
+# [email] (not sent - RESEND_API_KEY missing) to=s1791495390772@example.com subject="Welcome to Weblytic360"
+# Subtest: setup: create an account, a site and one tracked pageview
+ok 47 - setup: create an account, a site and one tracked pageview
+  ---
+  duration_ms: 212.3334
+  ...
+# Subtest: POST /api/events/collect ignores bot traffic
+ok 48 - POST /api/events/collect ignores bot traffic
+  ---
+  duration_ms: 7.707
+  ...
+# Subtest: POST /api/events/collect rejects an unknown site
+ok 49 - POST /api/events/collect rejects an unknown site
+  ---
+  duration_ms: 8.2989
+  ...
+# Subtest: GET /api/stats/:siteId/overview returns the tracked pageview
+ok 50 - GET /api/stats/:siteId/overview returns the tracked pageview
+  ---
+  duration_ms: 9.6613
+  ...
+# Subtest: GET /api/stats/:siteId/metrics returns the referrer breakdown
+ok 51 - GET /api/stats/:siteId/metrics returns the referrer breakdown
+  ---
+  duration_ms: 9.719
+  ...
+# Subtest: GET /api/stats/:siteId/metrics rejects an unsupported type
+ok 52 - GET /api/stats/:siteId/metrics rejects an unsupported type
+  ---
+  duration_ms: 8.5398
+  ...
+# Subtest: GET /api/stats/:siteId/active reports live visitors
+ok 53 - GET /api/stats/:siteId/active reports live visitors
+  ---
+  duration_ms: 11.2588
+  ...
+# Subtest: stats require authentication
+ok 54 - stats require authentication
+  ---
+  duration_ms: 6.3199
+  ...
+# [email] (not sent - RESEND_API_KEY missing) to=other1791495391056@example.com subject="Welcome to Weblytic360"
+# Subtest: a user cannot read another users site
+ok 55 - a user cannot read another users site
+  ---
+  duration_ms: 105.143
+  ...
+# Subtest: free plan allows only one site
+ok 56 - free plan allows only one site
+  ---
+  duration_ms: 8.5024
+  ...
+# Subtest: POST /api/events/collect tags an AI assistant referral
+ok 57 - POST /api/events/collect tags an AI assistant referral
+  ---
+  duration_ms: 8.5603
+  ...
+# Subtest: POST /api/events/collect records AI crawlers instead of dropping them as bots
+ok 58 - POST /api/events/collect records AI crawlers instead of dropping them as bots
+  ---
+  duration_ms: 8.2967
+  ...
+# Subtest: GET /api/stats/:siteId/ai summarises assistant and crawler traffic
+ok 59 - GET /api/stats/:siteId/ai summarises assistant and crawler traffic
+  ---
+  duration_ms: 8.1516
+  ...
+# Subtest: GET /api/stats/:siteId/ai requires authentication
+ok 60 - GET /api/stats/:siteId/ai requires authentication
+  ---
+  duration_ms: 5.6873
+  ...
+# Subtest: GET /api/stats/network combines every site the user owns
+ok 61 - GET /api/stats/network combines every site the user owns
+  ---
+  duration_ms: 10.0326
+  ...
+# Subtest: GET /api/stats/network requires authentication
+ok 62 - GET /api/stats/network requires authentication
+  ---
+  duration_ms: 6.1706
+  ...
+# [db] ready at C:\\Users\\kumarika\\workspace\\my_project\\weblytic360\\backend\\data\\test.db
+# [email] (not sent - RESEND_API_KEY missing) to=owner1791495392931@example.com subject="Welcome to Weblytic360"
+# Subtest: setup: create the workspace owner
+ok 63 - setup: create the workspace owner
+  ---
+  duration_ms: 148.3763
+  ...
+# Subtest: GET /api/team requires authentication
+ok 64 - GET /api/team requires authentication
+  ---
+  duration_ms: 11.6293
+  ...
+# Subtest: GET /api/team starts empty with the role list
+ok 65 - GET /api/team starts empty with the role list
+  ---
+  duration_ms: 15.8382
+  ...
+# Subtest: POST /api/team invites a member
+ok 66 - POST /api/team invites a member
+  ---
+  duration_ms: 8.8029
+  ...
+# Subtest: POST /api/team rejects a bad email
+ok 67 - POST /api/team rejects a bad email
+  ---
+  duration_ms: 6.8716
+  ...
+# Subtest: POST /api/team rejects an unknown role
+ok 68 - POST /api/team rejects an unknown role
+  ---
+  duration_ms: 6.213
+  ...
+# Subtest: POST /api/team rejects a duplicate invite
+ok 69 - POST /api/team rejects a duplicate invite
+  ---
+  duration_ms: 9.245
+  ...
+# Subtest: PATCH /api/team/:id changes the role
+ok 70 - PATCH /api/team/:id changes the role
+  ---
+  duration_ms: 9.7459
+  ...
+# [email] (not sent - RESEND_API_KEY missing) to=intruder1791495393156@example.com subject="Welcome to Weblytic360"
+# Subtest: a user cannot touch another workspace member
+ok 71 - a user cannot touch another workspace member
+  ---
+  duration_ms: 100.747
+  ...
+# Subtest: DELETE /api/team/:id removes the member
+ok 72 - DELETE /api/team/:id removes the member
+  ---
+  duration_ms: 18.1003
+  ...
+1..72
+# tests 72
+# suites 0
+# pass 72
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13411.6959

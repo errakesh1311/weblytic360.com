@@ -1,0 +1,11 @@
+
+> weblytic360-backend@1.0.0 seed
+> node --no-warnings scripts/seed.js
+
+[db] ready at C:\Users\kumarika\workspace\my_project\weblytic360\backend\data\weblytic360.db
+Site already has 5366 events, skipping generation.
+
+--- Seed complete ---
+Login:   demo@weblytic360.com / demo1234
+Site ID: 6912b921-2255-4abc-91a3-38b62dc750a9
+Events:  5366

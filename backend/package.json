@@ -1,0 +1,32 @@
+{
+  "name": "weblytic360-backend",
+  "version": "1.0.0",
+  "description": "Privacy-friendly web analytics SaaS - API server.",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node --no-warnings src/index.js",
+    "dev": "node --no-warnings --watch src/index.js",
+    "seed": "node --no-warnings scripts/seed.js",
+    "seed:demo": "node --no-warnings scripts/seed-demo.js",
+    "test": "node --no-warnings --test --test-concurrency=1 tests/*.test.js",
+    "test:email": "node --no-warnings scripts/test-email.js",
+    "pretest": "node -e \"require('fs').rmSync('data/test.db',{force:true})\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "resend": "^6.32.0",
+    "stripe": "^17.5.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.3.0"
+  },
+  "author": "",
+  "license": "MIT"
+}

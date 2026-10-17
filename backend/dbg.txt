@@ -1,0 +1,6 @@
+DBFILE=default
+sites=1
+events=5366
+firstSite={"id":"6912b921-2255-4abc-91a3-38b62dc750a9"}
+(node:46776) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

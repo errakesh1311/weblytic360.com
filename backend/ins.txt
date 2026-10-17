@@ -1,0 +1,4 @@
+INSERTED b86fc843-ffa5-41b1-8cb6-7516d7f1bf11
+active=1
+(node:33464) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

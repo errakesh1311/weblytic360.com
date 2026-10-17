@@ -1,0 +1,24 @@
+C:\Users\kumarika\workspace\my_project\weblytic360\backend\src\models\Event.js:30
+    db.prepare(INSERT_SQL).run(...toValues(row));
+                           ^
+
+Error: FOREIGN KEY constraint failed
+    at Object.create (C:\Users\kumarika\workspace\my_project\weblytic360\backend\src\models\Event.js:30:28)
+    at Object.<anonymous> (C:\Users\kumarika\workspace\my_project\weblytic360\backend\scripts\seed-live.js:39:11)
+    at Module._compile (node:internal/modules/cjs/loader:1562:14)
+    at Object..js (node:internal/modules/cjs/loader:1699:10)
+    at Module.load (node:internal/modules/cjs/loader:1313:32)
+    at Function._load (node:internal/modules/cjs/loader:1123:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:217:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'ERR_SQLITE_ERROR',
+  errcode: 787,
+  errstr: 'constraint failed'
+}
+
+Node.js v22.13.1
+ACTIVE_NOW=1
+(node:35304) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
